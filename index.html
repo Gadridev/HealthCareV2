@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login UI</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-br from-blue-950 to-sky-500 flex items-center justify-center p-6"
+  >
+    <div
+      class="flex w-full max-w-5xl bg-white rounded-lg shadow-2xl overflow-hidden"
+    >
+     <button
+    id="toggle"
+    class="fixed top-5 right-5 px-4 py-2 rounded-lg
+           bg-gray-200 dark:bg-gray-800
+           text-gray-800 dark:text-gray-200">
+    🌙 Dark
+  </button>
+      <div
+        class="hidden md:block md:w-1/2 bg-cover bg-center"
+        style="background-image: url(&quot;2780906.jpg&quot;)"
+      ></div>
+      <div class="w-full md:w-1/2 p-10 md:p-14">
+        <h1 class="text-3xl font-bold text-sky-500">
+          HealthCare!
+          <span class="block w-12 h-1 bg-sky-500 mt-2"></span>
+        </h1>
+        <form class="space-y-5" id="form">
+          <div class="py-2">
+            <label class="text-sky-500 font-bold py-2">Nom:</label>
+            <input
+              type="text"
+              class="w-full px-4 py-3 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              id="nom"
+            />
+            <p id="nomError"></p>
+          </div>
+          <div class="py-2">
+            <label class="text-sky-500 font-bold">Prenom:</label>
+            <input
+              id="prenom"
+              type="text"
+              class="w-full px-4 py-3 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            />
+            <p id="prenomError"></p>
+          </div>
+          <div class="py-2">
+            <label class="text-sky-500 font-bold">Telephone:</label>
+            <input
+              id="telephone"
+              type="text"
+              class="w-full px-4 py-3 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            />
+            <p id="telephonError"></p>
+          </div>
+          <div class="py-2">
+            <label class="text-sky-500 font-bold">Email:</label>
+            <input
+              id="email"
+              type="text"
+              class="w-full px-4 py-3 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-sky-400"
+              id="emailError"
+            />
+          </div>
+          <div class="py-2">
+            <label class="text-sky-500 font-bold">Motif:</label>
+            <input
+              id="motif"
+              type="text"
+              class="w-full px-4 py-3 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            />
+            <p id="motifError"></p>
+          </div>
+          <div class="py-2">
+            <label class="text-sky-500 font-bold">Date de Souhaite:</label>
+            <input
+              id="date"
+              type="date"
+              class="w-full px-4 py-3 rounded-md bg-gray-100 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            />
+            <p id="dateError"></p>
+          </div>
+          <button
+            type="submit"
+            class="mt-4 px-10 py-3 rounded-md text-white font-semibold bg-gradient-to-r from-blue-900 to-sky-500 hover:opacity-90 transition"
+            id="btn"
+          >
+            NEXT →
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="https://unpkg.com/yup@1.3.2/dist/yup.min.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
