@@ -11,21 +11,6 @@ function getperPage(page) {
   const endIndex = startIndex + itemsPerPage;
   return filterData.slice(startIndex, endIndex);
 }
-const toggle = document.getElementById("toggle");
-const html = document.documentElement;
-
-if (localStorage.getItem("theme") === "dark") {
-  html.classList.add("dark");
-  toggle.textContent = "☀️ Light";
-}
-
-toggle.addEventListener("click", () => {
-  html.classList.toggle("dark");
-
-  const isDark = html.classList.contains("dark");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-  toggle.textContent = isDark ? "☀️ Light" : "🌙 Dark";
-});
 function createPagination() {
   const paginationContainer = document.getElementById("pagination");
   paginationContainer.innerHTML = "";
