@@ -1,5 +1,6 @@
 let getData = JSON.parse(localStorage.getItem("healthData"));
 let search = document.getElementById("search");
+const motifFilter = document.getElementById("motifFilter");
 let filterData = [...getData];
 let itemsPerPage = 5;
 let currentPage = 1;
@@ -13,7 +14,6 @@ function getperPage(page) {
 const toggle = document.getElementById("toggle");
 const html = document.documentElement;
 
-// Load saved theme
 if (localStorage.getItem("theme") === "dark") {
   html.classList.add("dark");
   toggle.textContent = "☀️ Light";
@@ -87,7 +87,6 @@ function showData() {
     container.appendChild(tr);
   });
 }
-//search
 function searchInput(event) {
   let value = event.toLowerCase();
   filterData = getData.filter((item) => {
@@ -106,9 +105,26 @@ function deleteItem(index) {
   createPagination();
   showData();
 }
+function applyFilters() {
+  const motifValue = motifFilter.value;
+  filterData = getData.filter((item) => {
+    const matchMotif =
+      motifValue === "all" ||
+      item.motif.toLowerCase() === motifValue;
+
+    return  matchMotif;
+  });
+  currentPage = 1;
+  showData();
+  createPagination();
+}
+
 search.addEventListener("input", (e) => {
   e.preventDefault();
   searchInput(e.target.value);
+});
+motifFilter.addEventListener("change", () => {
+  applyFilters();
 });
 function initTable() {
   showData();
