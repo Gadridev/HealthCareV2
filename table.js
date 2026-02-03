@@ -106,13 +106,20 @@ function deleteItem(index) {
   showData();
 }
 function applyFilters() {
+  const searchValue = search.value.toLowerCase();
   const motifValue = motifFilter.value;
+
   filterData = getData.filter((item) => {
+    const matchSearch =
+      item.nom.toLowerCase().includes(searchValue) ||
+      item.prenom.toLowerCase().includes(searchValue) ||
+      item.email.toLowerCase().includes(searchValue);
+
     const matchMotif =
       motifValue === "all" ||
       item.motif.toLowerCase() === motifValue;
 
-    return  matchMotif;
+    return matchSearch && matchMotif;
   });
   currentPage = 1;
   showData();
@@ -120,8 +127,7 @@ function applyFilters() {
 }
 
 search.addEventListener("input", (e) => {
-  e.preventDefault();
-  searchInput(e.target.value);
+  applyFilters()
 });
 motifFilter.addEventListener("change", () => {
   applyFilters();
